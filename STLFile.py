@@ -39,8 +39,10 @@ class createtriangle:
     def cross_product(self,p1,p2):
         return (p1[1]*p2[2]-p2[1]*p1[2]) , (p1[2]*p2[0])-(p2[2]*p1[0]) , (p1[0]*p2[1])-(p2[0]*p1[1])
 
+
 class loader:
     def __init__(self, filename):
+        print("loading stl: ", filename)
         self.model=[]
         self.load_stl(filename)
     #return the faces of the triangles
@@ -67,10 +69,10 @@ class loader:
         type=h[0:5]
         fp.close()
         if type==b'solid':
-            # print ("reading stl file "+str(filename))
+            print ("reading stl file "+str(filename))
             self.load_text_stl(filename)
         else:
-            # print ("reading binary stl file "+str(filename))
+            print ("reading binary stl file "+str(filename))
             self.load_binary_stl(filename)
   
     #read text stl match keywords to grab the points to build the model
